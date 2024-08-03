@@ -1,0 +1,190 @@
+/* Media query for very small screens */
+@media only screen and (max-width: 400px) {
+  .container .calc_body {
+    width: 100%;  /* Set width to 100% for very small screens */
+  }
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: .9rem;
+  text-align: center;
+  font-family: "Segoe UI", Arial; /* Combined font-family */
+  color: #f2f2f2;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: rgb(22, 1, 20);
+}
+
+.container {
+  width: 100%; /* Use full width for mobile */
+  max-width: 600px; /* Limit max width for larger screens */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: .5rem;
+}
+
+.container .calc_body {
+  width: 100%; /* Use full width */
+  padding: 5px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  background: rgba(31, 31, 31, 0.7);
+  border-radius: 30px;
+  grid-column: 1 / span 4; /* Span all columns */
+  grid-row: 1 / span 5;
+}
+
+.container .calc_body .screen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 8px; 
+  border-radius: 30px;
+}
+
+.container .calc_body .screen__inner_small {
+  width: 100%;
+  height: auto;
+  min-height: 30px;
+  word-break: break-word;
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container .calc_body .screen__inner_bigger {
+  width: 100%;
+  height: auto;
+  min-height: 70px;
+  padding: 8px 0px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  word-break: break-word;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2.5rem;
+}
+
+.container .calc_body .button__holder {
+  width: 100%;
+}
+
+.container .calc_body .button__holder .button__holder__one {
+  display: grid;
+  grid-template-rows: 25px;
+  grid-template-columns: repeat(4, 2fr);
+}
+
+.container .calc_body .button__holder .button__holder__one button {
+  font-size: .7em;
+}
+
+.container .calc_body .button__holder .button__holder__one button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container .calc_body .button__holder .button__holder__two {
+  display: grid;
+  grid-template-rows: repeat(6, 50px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2px;
+}
+
+.container .calc_body .button__holder .button__holder__two button {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.container .calc_body .button__holder .button__holder__two button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container .calc_body .button__holder .button__holder__two .number {
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 1.2rem;
+}
+
+.container .calc_body .button__holder .button__holder__two .operators {
+  font-size: 1.3rem;
+}
+
+.container .calc_body .button__holder .button__holder__two .operators:hover {
+  background-color: #2878CC;
+}
+
+.container .calc_body .button__holder .button__holder__two .reduce {
+  font-size: .9rem;
+}
+
+.container .calc_body .button__holder .button__holder__two .reduce:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container .memory {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  grid-column: 4 / span 2;
+  grid-row: 2 / span 3;
+}
+
+.container .memory h2 {
+  padding: 8px 0px;
+  width: 100%;
+  font-family: Arial;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ccc;
+  text-align: center;
+}
+
+.container .memoryitem {
+  padding: 7px 5px;
+}
+
+.container .memoryitem:hover {
+  background-color: rgba(0, 0, 255, 0.4);
+}
+
+.bubble-container {
+  margin: 0 auto; /* Center horizontally (option 2) */
+  width: 100vw;
+  height: 100vh;
+  position: fixed; /* Fix to viewport */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Place behind the gameboard */
+}
+
+.bubble {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  position: absolute;
+  animation: bubble-move 2s infinite ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0px 0px 1px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes bubble-move {
+  0% { transform: translateY(100%); }
+  }
